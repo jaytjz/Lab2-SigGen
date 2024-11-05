@@ -18,7 +18,7 @@ VL_ATTR_COLD void Vsinegen___024root___initial__TOP__0(Vsinegen___024root* vlSel
     __Vtemp_ha00c3b92__0[1U] = 0x65726f6dU;
     __Vtemp_ha00c3b92__0[2U] = 0x73696eU;
     VL_READMEM_N(true, 8, 256, 0, VL_CVT_PACK_STR_NW(3, __Vtemp_ha00c3b92__0)
-                 ,  &(vlSelf->sinegen__DOT__sineRom__DOT__rom_array)
+                 ,  &(vlSelf->sinegen__DOT__myRom__DOT__rom_array)
                  , 0, ~0ULL);
 }
 
@@ -49,13 +49,13 @@ VL_ATTR_COLD void Vsinegen___024root___ctor_var_reset(Vsinegen___024root* vlSelf
     Vsinegen__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsinegen___024root___ctor_var_reset\n"); );
     // Body
-    vlSelf->clk = VL_RAND_RESET_I(1);
+    vlSelf->incr = VL_RAND_RESET_I(8);
     vlSelf->rst = VL_RAND_RESET_I(1);
     vlSelf->en = VL_RAND_RESET_I(1);
-    vlSelf->incr = VL_RAND_RESET_I(8);
+    vlSelf->clk = VL_RAND_RESET_I(1);
     vlSelf->dout = VL_RAND_RESET_I(8);
-    vlSelf->sinegen__DOT__address = VL_RAND_RESET_I(8);
+    vlSelf->sinegen__DOT__addr = VL_RAND_RESET_I(8);
     for (int __Vi0=0; __Vi0<256; ++__Vi0) {
-        vlSelf->sinegen__DOT__sineRom__DOT__rom_array[__Vi0] = VL_RAND_RESET_I(8);
+        vlSelf->sinegen__DOT__myRom__DOT__rom_array[__Vi0] = VL_RAND_RESET_I(8);
     }
 }

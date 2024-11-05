@@ -1,29 +1,26 @@
 module sinegen #(
-    parameter A_WIDTH = 8,
-    parameter D_WIDTH = 8
-)(
-    // interface signals
-    input logic                  clk,    // clock
-    input logic                  rst,    // reset
-    input logic                  en,     // enable
-    input logic [D_WIDTH-1:0]    incr,   // increment for addr counter
-    output logic [D_WIDTH-1:0]   dout    // output data
+    parameter WIDTH = 8
+) (
+    input logic [WIDTH-1:0] incr,
+    input logic rst,
+    input logic en,
+    input logic clk,
+    output logic [WIDTH-1:0] dout
 );
 
-    logic [A_WIDTH-1:0] address;    // interconnect wire
+logic [WIDTH-1:0] addr;
 
-
-counter addrCounter (
-    .clk (clk),           
-    .rst (rst),           
-    .en  (en),            
-    .incr (incr),         
-    .count (address)      
-);
-
-rom sineRom (
+counter myCounter(
+    .incr (incr),
+    .rst (rst),
+    .en (en),
     .clk (clk),
-    .addr (address),
+    .count (addr)
+);
+
+rom myRom(
+    .clk (clk),
+    .addr (addr),
     .dout (dout)
 );
 

@@ -11,25 +11,21 @@ VL_INLINE_OPT void Vsinegen___024root___sequent__TOP__0(Vsinegen___024root* vlSe
     Vsinegen__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsinegen___024root___sequent__TOP__0\n"); );
     // Body
-    vlSelf->dout = vlSelf->sinegen__DOT__sineRom__DOT__rom_array
-        [vlSelf->sinegen__DOT__address];
+    vlSelf->dout = vlSelf->sinegen__DOT__myRom__DOT__rom_array
+        [vlSelf->sinegen__DOT__addr];
 }
 
 VL_INLINE_OPT void Vsinegen___024root___sequent__TOP__1(Vsinegen___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vsinegen__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsinegen___024root___sequent__TOP__1\n"); );
-    // Init
-    CData/*7:0*/ __Vdly__sinegen__DOT__address;
     // Body
-    __Vdly__sinegen__DOT__address = vlSelf->sinegen__DOT__address;
-    if (vlSelf->rst) {
-        __Vdly__sinegen__DOT__address = 0U;
-    } else if (vlSelf->en) {
-        __Vdly__sinegen__DOT__address = (0xffU & ((IData)(vlSelf->sinegen__DOT__address) 
-                                                  + (IData)(vlSelf->incr)));
-    }
-    vlSelf->sinegen__DOT__address = __Vdly__sinegen__DOT__address;
+    vlSelf->sinegen__DOT__addr = ((IData)(vlSelf->rst)
+                                   ? 0U : (0xffU & 
+                                           ((IData)(vlSelf->en)
+                                             ? ((IData)(vlSelf->sinegen__DOT__addr) 
+                                                + (IData)(vlSelf->incr))
+                                             : (IData)(vlSelf->sinegen__DOT__addr))));
 }
 
 void Vsinegen___024root___eval(Vsinegen___024root* vlSelf) {
@@ -55,11 +51,11 @@ void Vsinegen___024root___eval_debug_assertions(Vsinegen___024root* vlSelf) {
     Vsinegen__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsinegen___024root___eval_debug_assertions\n"); );
     // Body
-    if (VL_UNLIKELY((vlSelf->clk & 0xfeU))) {
-        Verilated::overWidthError("clk");}
     if (VL_UNLIKELY((vlSelf->rst & 0xfeU))) {
         Verilated::overWidthError("rst");}
     if (VL_UNLIKELY((vlSelf->en & 0xfeU))) {
         Verilated::overWidthError("en");}
+    if (VL_UNLIKELY((vlSelf->clk & 0xfeU))) {
+        Verilated::overWidthError("clk");}
 }
 #endif  // VL_DEBUG
