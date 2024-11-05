@@ -11,10 +11,10 @@
 Vsinegen::Vsinegen(VerilatedContext* _vcontextp__, const char* _vcname__)
     : VerilatedModel{*_vcontextp__}
     , vlSymsp{new Vsinegen__Syms(contextp(), _vcname__, this)}
-    , rst{vlSymsp->TOP.rst}
     , clk{vlSymsp->TOP.clk}
-    , incr{vlSymsp->TOP.incr}
+    , rst{vlSymsp->TOP.rst}
     , en{vlSymsp->TOP.en}
+    , incr{vlSymsp->TOP.incr}
     , dout{vlSymsp->TOP.dout}
     , rootp{&(vlSymsp->TOP)}
 {

@@ -11,31 +11,31 @@ VL_ATTR_COLD void Vsinegen___024root__trace_init_sub__TOP__0(Vsinegen___024root*
     // Init
     const int c = vlSymsp->__Vm_baseCode;
     // Body
-    tracep->declBus(c+1,"incr", false,-1, 7,0);
+    tracep->declBit(c+1,"clk", false,-1);
     tracep->declBit(c+2,"rst", false,-1);
     tracep->declBit(c+3,"en", false,-1);
-    tracep->declBit(c+4,"clk", false,-1);
+    tracep->declBit(c+4,"incr", false,-1);
     tracep->declBus(c+5,"dout", false,-1, 7,0);
     tracep->pushNamePrefix("sinegen ");
     tracep->declBus(c+7,"WIDTH", false,-1, 31,0);
-    tracep->declBus(c+1,"incr", false,-1, 7,0);
+    tracep->declBit(c+1,"clk", false,-1);
     tracep->declBit(c+2,"rst", false,-1);
     tracep->declBit(c+3,"en", false,-1);
-    tracep->declBit(c+4,"clk", false,-1);
+    tracep->declBit(c+4,"incr", false,-1);
     tracep->declBus(c+5,"dout", false,-1, 7,0);
-    tracep->declBus(c+6,"addr", false,-1, 7,0);
+    tracep->declBus(c+6,"address", false,-1, 7,0);
     tracep->pushNamePrefix("myCounter ");
     tracep->declBus(c+7,"WIDTH", false,-1, 31,0);
-    tracep->declBus(c+1,"incr", false,-1, 7,0);
+    tracep->declBit(c+1,"clk", false,-1);
     tracep->declBit(c+2,"rst", false,-1);
     tracep->declBit(c+3,"en", false,-1);
-    tracep->declBit(c+4,"clk", false,-1);
+    tracep->declBit(c+4,"incr", false,-1);
     tracep->declBus(c+6,"count", false,-1, 7,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("myRom ");
     tracep->declBus(c+7,"ADDRESS_WIDTH", false,-1, 31,0);
     tracep->declBus(c+7,"DATA_WIDTH", false,-1, 31,0);
-    tracep->declBit(c+4,"clk", false,-1);
+    tracep->declBit(c+1,"clk", false,-1);
     tracep->declBus(c+6,"addr", false,-1, 7,0);
     tracep->declBus(c+5,"dout", false,-1, 7,0);
     tracep->popNamePrefix(2);
@@ -81,11 +81,11 @@ VL_ATTR_COLD void Vsinegen___024root__trace_full_sub_0(Vsinegen___024root* vlSel
     // Init
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);
     // Body
-    bufp->fullCData(oldp+1,(vlSelf->incr),8);
+    bufp->fullBit(oldp+1,(vlSelf->clk));
     bufp->fullBit(oldp+2,(vlSelf->rst));
     bufp->fullBit(oldp+3,(vlSelf->en));
-    bufp->fullBit(oldp+4,(vlSelf->clk));
+    bufp->fullBit(oldp+4,(vlSelf->incr));
     bufp->fullCData(oldp+5,(vlSelf->dout),8);
-    bufp->fullCData(oldp+6,(vlSelf->sinegen__DOT__addr),8);
+    bufp->fullCData(oldp+6,(vlSelf->sinegen__DOT__address),8);
     bufp->fullIData(oldp+7,(8U),32);
 }

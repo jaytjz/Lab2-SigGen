@@ -1,27 +1,27 @@
 module sinegen #(
-    parameter WIDTH = 8
-) (
-    input logic [WIDTH-1:0] incr,
-    input logic rst,
-    input logic en,
-    input logic clk,
-    output logic [WIDTH-1:0] dout
+  parameter WIDTH = 8
+)(
+  input  logic clk,
+  input  logic rst,
+  input  logic en,
+  input logic incr,
+  output logic [WIDTH-1:0] dout
 );
 
-logic [WIDTH-1:0] addr;
+  logic [WIDTH-1:0] address;
 
-counter myCounter(
-    .incr (incr),
-    .rst (rst),
-    .en (en),
-    .clk (clk),
-    .count (addr)
+counter myCounter (
+  .clk (clk),
+  .rst (rst),
+  .en (en),
+  .incr (incr),
+  .count (address)
 );
 
-rom myRom(
-    .clk (clk),
-    .addr (addr),
-    .dout (dout)
+rom myRom (
+  .clk (clk),
+  .addr (address),
+  .dout (dout)
 );
 
 endmodule

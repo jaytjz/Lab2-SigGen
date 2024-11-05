@@ -28,7 +28,6 @@ VL_ATTR_COLD void Vsinegen___024root___eval_initial(Vsinegen___024root* vlSelf) 
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsinegen___024root___eval_initial\n"); );
     // Body
     vlSelf->__Vclklast__TOP__clk = vlSelf->clk;
-    vlSelf->__Vclklast__TOP__rst = vlSelf->rst;
     Vsinegen___024root___initial__TOP__0(vlSelf);
 }
 
@@ -49,12 +48,12 @@ VL_ATTR_COLD void Vsinegen___024root___ctor_var_reset(Vsinegen___024root* vlSelf
     Vsinegen__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsinegen___024root___ctor_var_reset\n"); );
     // Body
-    vlSelf->incr = VL_RAND_RESET_I(8);
+    vlSelf->clk = VL_RAND_RESET_I(1);
     vlSelf->rst = VL_RAND_RESET_I(1);
     vlSelf->en = VL_RAND_RESET_I(1);
-    vlSelf->clk = VL_RAND_RESET_I(1);
+    vlSelf->incr = VL_RAND_RESET_I(1);
     vlSelf->dout = VL_RAND_RESET_I(8);
-    vlSelf->sinegen__DOT__addr = VL_RAND_RESET_I(8);
+    vlSelf->sinegen__DOT__address = VL_RAND_RESET_I(8);
     for (int __Vi0=0; __Vi0<256; ++__Vi0) {
         vlSelf->sinegen__DOT__myRom__DOT__rom_array[__Vi0] = VL_RAND_RESET_I(8);
     }
